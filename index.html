@@ -1,0 +1,87 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resolva Meu Marketing Canvas</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegação dos canvas">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <div><strong>Resolva</strong><span>Meu Marketing</span></div>
+        </div>
+        <nav class="canvas-nav" id="canvasNav"></nav>
+      </aside>
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Guia de preenchimento</p>
+            <h1 id="canvasTitle">Canvas</h1>
+            <p id="canvasSubtitle" class="subtitle"></p>
+          </div>
+          <div class="actions">
+            <button class="icon-button" id="agentToggle" type="button" title="Abrir agente RMM" aria-label="Abrir agente RMM"><span aria-hidden="true">?</span></button>
+            <button class="pdf-button" id="filledPdfButton" type="button">PDF preenchido</button>
+            <button class="pdf-button" id="blankPdfButton" type="button">PDF em branco</button>
+            <button class="icon-button" id="exportButton" type="button" title="Exportar respostas" aria-label="Exportar respostas"><span aria-hidden="true">↓</span></button>
+            <button class="danger-button" id="clearButton" type="button">Limpar</button>
+          </div>
+        </header>
+        <section class="overview">
+          <div class="progress-panel">
+            <div class="progress-copy"><span id="phaseLabel">Fase</span><strong id="progressLabel">0% preenchido</strong></div>
+            <div class="progress-track" aria-hidden="true"><span id="progressBar"></span></div>
+          </div>
+          <div class="meta-grid">
+            <label>Empresa<input id="companyInput" type="text" autocomplete="organization" placeholder="Nome da empresa" /></label>
+            <label>Responsável<input id="ownerInput" type="text" autocomplete="name" placeholder="Quem está conduzindo" /></label>
+            <label>Data<input id="dateInput" type="date" /></label>
+          </div>
+        </section>
+        <section class="method-strip" id="methodStrip" aria-label="Etapas da metodologia"></section>
+        <section class="content-grid">
+          <div class="guide-panel">
+            <div class="section-heading"><span>Preenchimento</span><strong id="stepCount"></strong></div>
+            <div id="fieldGrid" class="field-grid"></div>
+          </div>
+          <aside class="summary-panel">
+            <div class="section-heading"><span>Síntese</span><strong id="summaryCount">0 itens</strong></div>
+            <div id="summaryList" class="summary-list"></div>
+          </aside>
+        </section>
+      </main>
+      <aside class="agent-panel" id="agentPanel" aria-label="Chat do agente RMM">
+        <div class="agent-header">
+          <div>
+            <span>Agente RMM</span>
+            <strong>Orientador do canvas</strong>
+          </div>
+          <button class="icon-button agent-close" id="agentClose" type="button" title="Fechar agente" aria-label="Fechar agente">×</button>
+        </div>
+        <div class="agent-status" id="agentStatus"></div>
+        <details class="agent-config" id="agentConfigBox">
+          <summary>Conectar agente GPT</summary>
+          <label>Nome do agente<input id="agentNameInput" type="text" placeholder="Ex.: Agente RMM Estratégico" /></label>
+          <label>Endpoint da API<input id="agentEndpointInput" type="text" placeholder="/api/agent" /></label>
+          <label>Instruções do agente<textarea id="agentInstructionsInput" rows="4" placeholder="Cole aqui as instruções do seu GPT personalizado..."></textarea></label>
+          <button class="agent-save" id="agentConfigSave" type="button">Salvar conexão</button>
+          <p id="agentConfigHint"></p>
+        </details>
+        <div class="agent-context" id="agentContext"></div>
+        <div class="agent-suggestions" id="agentSuggestions"></div>
+        <div class="chat-log" id="chatLog" aria-live="polite"></div>
+        <form class="chat-form" id="chatForm">
+          <textarea id="chatInput" rows="3" placeholder="Pergunte ao agente como preencher este canvas..."></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      </aside>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
+
+
+
